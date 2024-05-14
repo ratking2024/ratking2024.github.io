@@ -1195,7 +1195,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #abf71c;
+  background: #9463fc;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2307,7 +2307,7 @@ mjx-container + br {
   }
 }
 .header-inner {
-  padding-top: 20px;
+  padding-top: 40px;
 }
 @media (max-width: 767px) {
   .header-inner {
@@ -2485,4 +2485,10 @@ h1 {
 .post-body a {
   color: #1169ee; /* 替换为你想要的颜色 */
   font-weight: bold;
+}
+@font-face {
+  font-family: 'Poetsen One';
+  src: url("/fonts/PoetsenOne-Regular.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
