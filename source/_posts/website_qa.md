@@ -1,7 +1,7 @@
 ---
-title: 网站建设与部署踩坑记录
+title: 网站建设与部署问题记录
 date: 2015-05-15
-categories: single
+categories: Website
 id: blog001
 ---
 ### 前言

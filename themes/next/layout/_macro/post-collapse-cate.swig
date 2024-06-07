@@ -1,15 +1,5 @@
 {% macro render(posts) %}
-{%- set current_year = '1970' %}
 {%- for post in posts.toArray() %}
-
-  {%- set year = date(post.date, 'YYYY') %}
-
-  {%- if year !== current_year %}
-    {%- set current_year = year %}
-    <div class="collection-year">
-      <span class="collection-header">{{ current_year }}</span>
-    </div>
-  {%- endif %}
 
   <article itemscope itemtype="http://schema.org/Article" class="post-article">
     <header class="post-header">
@@ -41,7 +31,7 @@
         <time itemprop="dateCreated"
               datetime="{{ moment(post.date).format() }}"
               content="{{ date(post.date, config.date_format) }}">
-          {{ date(post.date, 'MM-DD') }}
+          {{ date(post.date, 'YYYY-MM-DD') }}
         </time>
       </div>
     </header>

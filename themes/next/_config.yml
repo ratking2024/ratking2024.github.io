@@ -125,11 +125,11 @@ darkmode: false
 menu:
   home: / || fa fa-igloo
   about: /about/ || fa fa-user-graduate
-  tags: /tags/ || fa fa-tag
+  #tags: /tags/ || fa fa-tag
   categories: /categories/ || fa fa-th-list
-  archives: /archives/ || fa fa-book
+  Blogs: /archives/ || fa fa-book
   #schedule: /schedule/ || fa fa-calendar
-  sitemap: /sitemap.xml || fa fa-sitemap
+  sitemap: /sitemap/ || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -467,7 +467,7 @@ font:
     
   logo:
     external: true
-    family: PT Mono
+    family: 
     size: 24
 
 
@@ -859,11 +859,11 @@ motion:
     # slideUpBigIn | slideDownBigIn | slideLeftBigIn | slideRightBigIn
     # perspectiveUpIn | perspectiveDownIn | perspectiveLeftIn | perspectiveRightIn
     post_block: fadeIn
-    post_header: slideDownIn
-    post_body: slideDownIn
+    post_header: false
+    post_body: false
     coll_header: slideLeftIn
     # Only for Pisces | Gemini.
-    sidebar: slideUpIn
+    sidebar: false
 
 # Progress bar in the top during page loading.
 # Dependencies: https://github.com/theme-next/theme-next-pace

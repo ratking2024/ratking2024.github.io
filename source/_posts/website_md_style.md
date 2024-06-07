@@ -1,7 +1,7 @@
 ---
-title: markdown高阶格式验证
+title: Markdown 高阶语法验证
 date: 2014-04-16
-categories: single
+categories: Website
 id: blog002
 mathjax: true
 ---

@@ -118,4 +118,31 @@
     top: 1.25em;
     width: 4px;
   }
+
+  .post-article {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+ }
+
+  .post-title-and-thumbnail {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .post-title-and-excerpt {
+    flex-grow: 1;
+  }
+
+  .post-thumbnail {
+    margin-left: 20px;
+    align-self: flex-start;
+  }
+
+  .thumbnail-image {
+    width: 150px; /* Adjust the width as needed */
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
+    object-fit: cover; /* Resize image to fit the container */
+  }
 }
