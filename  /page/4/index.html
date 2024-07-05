@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"dongboran.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"5TK89P0WPV","apiKey":"3a0598e9a828151201fdf9c0e571aff6","indexName":"dev_dongboran","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"dongboran.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"5TK89P0WPV","apiKey":"3a0598e9a828151201fdf9c0e571aff6","indexName":"dev_dongboran","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":false,"post_body":false,"coll_header":"slideLeftIn","sidebar":false}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Interesting">
@@ -99,7 +99,7 @@
       <h1 class="site-title">Dante’s Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">Stay curious, stay hungry, and never stop learning.</p>
+      <p class="site-subtitle" itemprop="description">Stay curious, stay hungry, and never stop hunting.</p>
   </div>
 
   <div class="site-nav-right">
@@ -124,24 +124,19 @@
     <a href="/about/" rel="section"><i class="fa fa-user-graduate fa-fw"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tag fa-fw"></i>Tags</a>
-
-  </li>
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th-list fa-fw"></i>Categories</a>
 
   </li>
-        <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-blogs">
 
-    <a href="/archives/" rel="section"><i class="fa fa-book fa-fw"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-book fa-fw"></i>Blogs</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
 
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+    <a href="/sitemap/" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -195,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://dongboran.com/2015/website_qa/">
+    <link itemprop="mainEntityOfPage" href="https://dongboran.com/2022/mtblog_asg/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/shibainu_avatar.jpg">
@@ -209,7 +204,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2015/website_qa/" class="post-title-link" itemprop="url">网站建设与部署踩坑记录</a>
+            <a href="/2022/mtblog_asg/" class="post-title-link" itemprop="url">技术栈无关的剧本式引导</a>
         </h2>
 
         <div class="post-meta">
@@ -219,7 +214,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2015-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2015-05-15T00:00:00+08:00">2015-05-15</time>
+              <time title="Created: 2022-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-07T00:00:00+08:00">2022-04-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,7 +222,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/single/" itemprop="url" rel="index"><span itemprop="name">single</span></a>
+                  <a href="/categories/MTBlog/" itemprop="url" rel="index"><span itemprop="name">MTBlog</span></a>
                 </span>
             </span>
 
@@ -242,249 +237,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="前言">前言</h3>
-<p>本文档旨在记录个人站点建设过程中遭遇的挑战及其解决方案，着重概述主要架构和操作流程，而非详尽地逐步说明具体操作细节。</p>
-<h3 id="网站基础">网站基础</h3>
-<h4 id="第三方域名">第三方域名</h4>
-<p>关于快速建设一个可托管的个人网站目前业界有一些流行方案可选</p>
-<ol type="1">
-<li>GitHub Pages: GitHub
-提供的一项服务，允许用户免费托管静态网站。它特别适合个人、项目或组织的博客、项目文档和个人简历等网站。</li>
-<li>Netlify: 提供免费的静态网站托管服务，支持自动从 Git
-仓库部署，并提供自定义域名、HTTPS、全球 CDN 等功能。</li>
-<li>Vercel: 类似于 Netlify，Vercel 也提供从 Git
-仓库自动部署的静态网站托管服务，支持 Serverless 函数和全球 CDN。</li>
-<li>GitLab Pages: 类似于 GitHub Pages，GitLab Pages 允许你使用 GitLab
-仓库托管静态网站，并提供自定义域名和HTTPS支持。</li>
-<li>Firebase Hosting: Google 提供的托管解决方案，适合托管静态内容，如
-HTML、CSS、JavaScript 和图片，支持自定义域名和HTTPS。</li>
-<li>Cloudflare Pages:
-提供静态网站托管服务，免费提供无限次的网站构建，支持自定义域名和HTTPS。</li>
-<li>Amazon S3 + Amazon CloudFront: 使用 Amazon S3
-存储静态网站内容，并通过 Amazon CloudFront 提供 CDN
-服务。需要配置，可能涉及费用。</li>
-</ol>
-<p>因 Github Pages 操作相对简单，以此方案推进。 操作方式为以固定格式
-<sup>仓库名称：xxx.github.io</sup> 创建一个仓库，并上传 index.html
-文件。 之后可通过该域名访问可看到一个静态网页。</p>
-<h4 id="个人域名dns解析">个人域名dns解析</h4>
-<p>当已经获得了 <code>yourname.github.io</code> 这样一个 Github Pages
-网页后，觉得这个网址不够 cool，需要有一个自己的个人域名
-<code>www.yourname.com</code> 此时需要用到域名解析服务。</p>
-<p>目前国内推荐的云服务平台是 阿里云 或 腾讯云 ，这里以腾讯云举例 <a
-target="_blank" rel="noopener" href="https://dnspod.cloud.tencent.com/">腾讯云域名购买页</a> 一般 .com
-.cn .net 等可选，价格为几百元/年。 付款后可以去 <a
-target="_blank" rel="noopener" href="https://console.cloud.tencent.com/domain">腾讯云控制台入口</a>、<a
-target="_blank" rel="noopener" href="https://console.cloud.tencent.com/cns">腾讯云 dns 控制台</a>
-进行对应的操作与配置。</p>
-<p>同时，因为购买的域名需要重定向到源域名，源域名一般会对随意的重定向有限制，因此需要再
-Github Pages 里的设置里 custome domain 填写购买与注册的新域名。</p>
-<h4 id="接入cdn">接入cdn</h4>
-<p>计算机专业的都知道 cdn
-是就近节点缓存了资源文件，使得重复访问速度可以更快。
-这个服务在腾讯云里也可以付费购买。 <a
-target="_blank" rel="noopener" href="https://console.cloud.tencent.com/cdn">腾讯云 cdn 控制台</a>
-这里需要判断是境内加速还是境外加速，Github Pages 属于境外。
-在大多数网络环境 Github
-域名是可以访问的，若需要域名能在境内高速访问需要备案并购买境内云主机用于部署。</p>
-<p>当源网站内容进行更新后，会在一定延迟内同步到 cdn
-，若需要立刻生效则使用 cdn 中的 url 刷新功能。与之平级的还有 url
-预热，预热的区别是提前在各节点缓存该域名的资源文件，使得用户的第一次访问也可以加速，默认的
-cdn 是首次访问后第二次开始才能加速。</p>
-<h4 id="接入https">接入https</h4>
-<h5
-id="问题地址栏提示感叹号或不安全">问题：地址栏提示感叹号或不安全</h5>
-<p>浏览器的地址栏里填写个人域名的网址，该网址前面可能会出现一个
-感叹号，或标红此网站不安全，这就是此网站没有接入 https。</p>
-<p>这时需要购买 SSL证书 <a
-target="_blank" rel="noopener" href="https://console.cloud.tencent.com/ssl">腾讯云 ssl
-控制台</a>，也可以选择免费的，免费局限性在于时效较短需要频繁更新，并且安全级别较低真出现了信息隐患平台也不承担责任。</p>
-<h5 id="问题网页错误响应码-514">问题：网页错误响应码 514</h5>
-<p>需要确认 cdn 域名管理/HTTPS配置/HTTPS服务 是勾选的。 这里是请求量
-300万次内免费，超过付费。 若不勾选则不会产生费用，但会报 514
-错误，一般可能是欠费导致此处关闭了，但其他某链路却设置了 HTTPS。</p>
-<h5 id="问题报错-err_too_many_redirects">问题：报错
-ERR_TOO_MANY_REDIRECTS</h5>
-<p>这个报错看上去很像是个人域名与源域名有循环跳转的情况。所以需要确认
-dns 中的 @ CNAME 指向了 cdn 的域名。 并且 cdn
-域名管理/基础设置/回源地址是源地址，回源 Host 是新域名。</p>
-<p>同时也需要确认 是否均开启了 HTTPS，因为有的重定向规则 HTTP
-重定向到HTTPS，同时又将 HTTPS 重定向回 HTTP。 所以需要确认 Github Pages
-设置里勾选了 <code>Enforce HTTPS</code> ，cdn
-域名管理/基础设置/回源协议是 HTTPS。</p>
-<h3 id="网站样式">网站样式</h3>
-<p>考虑到博客与文档会使用更适合文档编写的 md 格式，所以需要一个能够将 md
-格式文档转换成 html 产物的站点生成器。</p>
-<h4 id="站点生成器">站点生成器</h4>
-<ol type="1">
-<li>Hexo: 简单且强大的基于 Node.js
-的静态站点生成器，特别适合用于个人博客的构建。支持 md 文件转换为
-HTML，并且拥有丰富的插件系统和主题生态。</li>
-<li>Jekyll: Ruby 编写的静态站点生成器，与 GitHub Pages
-集成非常紧密，支持 md 和 Liquid 模板。</li>
-<li>Hugo: 使用 Go 语言编写的静态站点生成器，以其构建速度快而闻名，支持
-md 和自定义模板。</li>
-<li>Gatsby: 基于 React 的现代静态网站生成器，使用 GraphQL 管理数据，支持
-md。</li>
-<li>VuePress: 由 Vue.js 驱动的静态站点生成器，专为技术文档而设计，支持
-md。</li>
-</ol>
-<p>考虑到使用方便以及行业生态，这里使用 Hexo 来作为方案推进。
-在一个空文件夹使用 <code>Hexo init</code> 指令来开启项目。
-接下来将会经常频繁的用到如下指令 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean  # 清除生成的 html 产物</span><br><span class="line">hexo generate # 重新生成</span><br><span class="line">hexo server # 本地预览</span><br><span class="line">hexo deploy # 远端发布</span><br></pre></td></tr></table></figure> 使用 generate
-指令后会产生 .deploy_git 文件，可在此文件目录修改 git config 等信息避免
-commit 上 author 错误。</p>
-<h4 id="网站主题选择">网站主题选择</h4>
-<p>Hexo 官方提供了非常友好的主题展示与预览 <a
-target="_blank" rel="noopener" href="https://hexo.io/themes/">HexoThemes</a>。看上了哪个基本都可以使用如下指令安装，考虑后选用
-Next 主题。 该主题的优势为兼容性好，界面风格简单不花哨。
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure></p>
-<p>Hexo 有一个配置文件 根目录 / _config.yml 文件
-<sup>用于站点基础类信息配置</sup> 下载了 Next 主题后，主题的配置文件在
-根目录 / themes / next / _config.yml 文件
-<sup>用于站点主题样式类配置</sup> 例如：想修改站点名称
-应是前一个，想修改代码块高亮的方式 应是后一个。</p>
-<p>Next 的配置文件中的配置项是 Next
-定义的，配置项随着版本更新也会有变化，若出现一些属性设置不生效时，可以使用自定义
-css 样式。 自定义 css 样式一般创建在 根目录 / source / css / _custom /
-custom.styl 。</p>
-<p>通过 Hexo 配置文件中的配置 <sup>如下</sup> 将 Hexo 和 Next 关联</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
-<p>通过 Next 配置文件中的配置 <sup>如下</sup> 将 Next
-主题与自定义样式关联</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">    <span class="attr">style:</span> <span class="string">source/css/_custom/custom.styl</span></span><br></pre></td></tr></table></figure>
-<h4 id="主题内对应设置">主题内对应设置</h4>
-<p>一般来说样式都可以在配置文件与 custome.styl
-文件中找到答案，在网站中的 icon 可以在 <a
-target="_blank" rel="noopener" href="https://fonts.google.com/icons">google icon 大全</a> 、<a
-target="_blank" rel="noopener" href="https://fontawesome.com/v5/search?o=r&amp;m=free">fontawesome icon
-大全</a> 寻找。 对于字体的配置可以在 <a
-target="_blank" rel="noopener" href="https://fonts.google.com/">google 字体大全</a> 里寻找。</p>
-<h5 id="问题设置自定义首页">问题：设置自定义首页</h5>
-<p>这个问题也可以理解为域名直接访问的首页，并不是我在 / home /
-下定义的首页。 因为 Hexo
-的首页默认生成一些文章列表摆在这，这让你的首页一进入是并不清爽。</p>
-<p>解决的办法是：先将 / home / 下的自定义首页移到 source
-的根目录，然后通过 Hexo 的配置文件禁用自动生成，这样本身根目录下的
-index.md 生成的html 就不会被冲掉了。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">&#x27; &#x27;</span>  <span class="comment"># 中间有个空的空格</span></span><br></pre></td></tr></table></figure>
-<p>同时 Next 配置文件的 home 也指向根目录，这样即可做到
-<strong>通过域名访问的首页，和点击 home
-按钮返回的首页是一个页面</strong>。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-igloo</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user-graduate</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tag</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th-list</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-book</span></span><br><span class="line">  <span class="attr">sitemap:</span> <span class="string">/sitemap.xml</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-sitemap</span></span><br></pre></td></tr></table></figure>
-<h5
-id="问题设置中文与英文为不同的字体样式">问题：设置中文与英文为不同的字体样式</h5>
-<h3 id="数学公式渲染">数学公式渲染</h3>
-<p>文章是使用 md 格式的，md
-可以通过渲染器实现数学公式这样非常「书面」的显示，类似这样的效果：</p>
-<p><span class="math display">\[
-J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha +
-1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}
-\]</span></p>
-<p>这里需要先编写并生成中间产物，然后再将中间产物渲染出来。</p>
-<h4 id="数学语法编写">数学语法编写</h4>
-<p>需要安装处理数学公式的插件，这一步动作的目的是 md
-中使用的数学公式语法在 <code>hexo generate</code> 时会生成对应的 html
-标签。</p>
-<p>在终端执行 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-math --save</span><br></pre></td></tr></table></figure> 修改 hexo 根目录 <code>_config.yml</code>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">engine:</span> <span class="string">&#x27;mathjax&#x27;</span> <span class="comment"># 或者 &#x27;katex&#x27;，取决于你想使用哪个渲染器</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">src:</span> <span class="string">https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML</span></span><br><span class="line">    <span class="attr">config:</span></span><br><span class="line">      <span class="comment"># MathJax 配置项</span></span><br></pre></td></tr></table></figure> 然后就是 md 中的编写了，具体语法可参考 [链接] ，不同语法在
-hexo 主题中的显示效果可见我的另一篇博文 [链接]。</p>
-<h4 id="渲染器">渲染器</h4>
-<p>当你在本地使用 Hexo 生成站点时，你可以使用 Pandoc 作为 md
-渲染器，但是最终生成的静态 HTML
-文件应该包含了渲染后的数学公式代码。如果你希望在本地使用 Pandoc
-来渲染数学公式，你需要在本地环境中安装 Pandoc</p>
-<p>下载 <code>hexo-renderer-pandoc</code> 插件前也先要让电脑里安装了
-pandoc <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">brew install pandoc</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure></p>
-<p>GitHub Pages 并不支持服务器端的渲染器，如 Pandoc。因此你不能直接控制
-GitHub Pages 使用 Pandoc 来渲染你的数学公式。GitHub Pages
-只能托管静态内容，所以你需要在本地生成所有静态文件，然后上传到
-GitHub。</p>
-<p>即使是使用 Pandoc 渲染的数学公式，最终在 GitHub Pages
-上的显示也依赖于客户端的 JavaScript 库 <sup>如 MathJax 或 KaTeX</sup>
-来正确显示数学公式。</p>
-<p>将生成的 html 标签渲染成对应数学公式，需要使用渲染器插件，在 Next
-主题的官方文档中就提到 katex 可能有未知问题，建议使用 pandoc。</p>
-<p>修改 hexo 根目录 <code>_config.yml</code> <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pandoc:</span></span><br><span class="line">  <span class="attr">filters:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">pandoc-citeproc</span></span><br><span class="line">  <span class="attr">extra:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">--mathjax</span></span><br><span class="line">  <span class="attr">meta:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">my-meta-data</span></span><br></pre></td></tr></table></figure> 修改 Next 的
-<code>_config.yml</code> <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-这样可以做到渲染器在本地生效，并且在远端网页也生效。</p>
-<h3 id="站内搜索">站内搜索</h3>
-<h4 id="algolia注册">Algolia注册</h4>
-<p>在 https://www.algolia.com/ 官网点击右上角的注册，可直接使用
-<code>google</code> 账号或 <code>github</code>
-账号一键关联登入，登入后在 https://dashboard.algolia.com/ 控制台查看。
-在控制台内需要创建一个 indexname
-作为一个标识，之后在本地配置时会用到，其他的配置可以都忽略。免费账户总共有
-10,000 条记录，每月有 100,000 的可以操作数。</p>
-<h4 id="algolia接入">Algolia接入</h4>
-<p>在终端使用如下指令拉取 hexo 插件依赖</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-algolia</span><br></pre></td></tr></table></figure>
-<p>可以通过如下指令查看已安装的插件版本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 | grep hexo-algolia</span><br></pre></td></tr></table></figure>
-<h4 id="基础搜索功能">基础搜索功能</h4>
-<p>例如我使用 hexo 的 Next 主题，需在 themes/next/_config.yml
-文件中增加</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">algolia_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 主要也就是把这里从 false 改为 true</span></span><br><span class="line">  <span class="attr">hits:</span></span><br><span class="line">    <span class="attr">per_page:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">input_placeholder:</span> <span class="string">Search</span> <span class="string">for</span> <span class="string">Posts</span></span><br><span class="line">    <span class="attr">hits_empty:</span> <span class="string">&quot;We didn&#x27;t find any results for the search: $&#123;query&#125;&quot;</span></span><br><span class="line">    <span class="attr">hits_stats:</span> <span class="string">&quot;$&#123;hits&#125; results found in $&#123;time&#125; ms&quot;</span></span><br></pre></td></tr></table></figure>
-<p>并在 hexo 根目录的 _config.yml 中增加</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">algolia:</span></span><br><span class="line">  <span class="attr">appId:</span> <span class="string">&#x27;你的ApplicationID&#x27;</span></span><br><span class="line">  <span class="attr">apiKey:</span> <span class="string">&#x27;你的AdminAPIKey&#x27;</span> </span><br><span class="line">  <span class="attr">indexName:</span> <span class="string">&#x27;你的IndexName&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>并在本机器的 <code>~/.zshrc</code> 中增加下面一行环境变量，并执行
-<code>source ~/.zshrc</code>。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="variable constant_">HEXO_ALGOLIA_INDEXING_KEY</span>=<span class="string">&#x27;你的AdminAPIKey&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>若填写不正确，会看到如下报错 <figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">ERROR</span> [hexo-algolia] <span class="title class_">Please</span> provide an <span class="title class_">Algolia</span> index name <span class="keyword">in</span> your hexo _config.yml file.</span><br><span class="line"><span class="variable constant_">ERROR</span> &gt;&gt; <span class="title class_">Read</span> <span class="symbol">https:</span>/<span class="regexp">/npmjs.com/hexo</span>-algolia<span class="comment">#public-facing-search-options for more informations.</span></span><br><span class="line"></span><br><span class="line"><span class="variable constant_">ERROR</span> [hexo-algolia] <span class="title class_">Please</span> set an <span class="string">`HEXO_ALGOLIA_INDEXING_KEY`</span> environment variable to enable content indexing.</span><br><span class="line"><span class="variable constant_">ERROR</span> &gt;&gt; <span class="title class_">Read</span> <span class="symbol">https:</span>/<span class="regexp">/npmjs.com/hexo</span>-algolia<span class="comment">#api-key for more informations.</span></span><br></pre></td></tr></table></figure></p>
-<p>配置完毕后再终端需要一键四连了，或弄个脚本简化 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo algolia</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure> 其中
-<code>hexo algolia</code> 指令是需要在 <code>hexo generate</code>
-之后执行的，因前者生成了 html 文件，后者是从这里提取所需索引字段并对
-indexname 和 appid 去上传。执行后在 Algolia 的控制台内可看到上传的信息。
-一般来说每次文章内容更新后都应当使用此指令更新索引。</p>
-<h4 id="支持content搜索">支持content搜索</h4>
-<p>使用上述方式配置之后，网站内可以基于 title 搜索了，但这是不够的。
-期望的状态是：<strong>每篇文章的内容也可以搜索，输入了内容的关键字也可以搜到对应的文章标题</strong></p>
-<p>按照官方文档的介绍是在 hexo 跟目录下的 <code>_config.yml</code>
-文件中增加如下配置，其中<code>content</code>为内容部分</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">algolia:</span></span><br><span class="line">  <span class="attr">appId:</span> <span class="string">&#x27;你的ApplicationID&#x27;</span></span><br><span class="line">  <span class="attr">apiKey:</span> <span class="string">&#x27;你的AdminAPIKey&#x27;</span></span><br><span class="line">  <span class="attr">indexName:</span> <span class="string">&#x27;你的IndexName&#x27;</span></span><br><span class="line">  <span class="attr">fields:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">title</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">content</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">date</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tags</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">categories</span></span><br></pre></td></tr></table></figure>
-<p><code>title</code>、<code>tags</code> 等字段基于 md 文章的 header
-部分提取。 <code>content</code> 字段 Hexo Algolia
-插件在索引时会查找并提取这个 <code>articleBody</code>
-区域的内容。并不需要添加任何特殊的 content 标记，插件会自动处理这部分。
-默认情况下文章的内容被放置在具有 <code>post-body</code> 类的
-<code>div</code> 标签内，并且使用了 <code>itemprop="articleBody"</code>
-属性。这是 Hexo 生成的 HTML 结构。</p>
-<p>但我配置后并没有生效，在 Algolia 的控制台内接收到的索引 item
-信息里别的都有就是没有 <code>content</code> 。经过验证是
-<code>_config.yml</code> 中的 <code>fields</code>
-属性并没有生效，所以想增加 <code>content</code>
-的诉求还是被忽略了，经过一番换写法的尝试该属性还是不生效。</p>
-<h5 id="问题config-文件-algolia-fields-不生效">问题：config 文件 algolia
-fields 不生效</h5>
-<p>解决方案是修改源码。通过 <code>npm install --save hexo-algolia</code>
-下载插件一版都位于hexo根目录下的 <code>node_modules</code>
-文件夹内，原逻辑是源码中设置了默认的索引上传字段，然后基于配置文件可以修改这些上传字段，在
-<code>hexo-alogia/lib/command.js</code> 的变量位置增加了
-<code>content</code> 字段后 It works。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable constant_">CONSOLE_DEFAULTS</span> = &#123;</span><br><span class="line">  <span class="attr">dryRun</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">flush</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">chunkSize</span>: <span class="number">50</span>,</span><br><span class="line">  <span class="attr">layouts</span>: <span class="variable constant_">INDEXED_LAYOUTS</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="variable constant_">INDEXED_PROPERTIES</span> = [</span><br><span class="line">  <span class="string">&#x27;title&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;content&#x27;</span>, <span class="comment">//这里是新增的</span></span><br><span class="line">  <span class="string">&#x27;date&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;updated&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;slug&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;excerpt&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;permalink&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;image&#x27;</span></span><br><span class="line">];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>虽然 It works 但终端仍然有报错信息</p>
-<h5
-id="问题hexo-algolia-error-objectid-is-too-big-size">问题：[hexo-algolia]
-ERROR objectID is too big size</h5>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">ERROR</span> [hexo-algolia] <span class="title class_">Record</span> at the position <span class="number">2</span> objectID=xx is too big size=<span class="number">10677</span>/<span class="number">10000</span> bytes. </span><br><span class="line"><span class="title class_">Please</span> have a look at <span class="symbol">https:</span>/<span class="regexp">/www.algolia.com/doc</span><span class="regexp">/guides/sending</span>-<span class="keyword">and</span>-managing-data/prepare-your-data/<span class="keyword">in</span>-depth/index-<span class="keyword">and</span>-records-size-<span class="keyword">and</span>-usage-limitations/<span class="comment">#record-size-limits</span></span><br></pre></td></tr></table></figure>
-<p>我这篇文章其实并不长，但居然报了说 too big，因为我们是使用 hexo
-框架对一个 md 文件去生成的 html 文件，这里有大量的 <标签>
-充斥在正文内，很快会把 10KB 撑满，<strong>至此也终于理解了为什么
-hexo-algolia 的作者会在默认值中不带上 content
-了，因为一带上大部分用户都会遇到 too big 报错，所以干脆去掉了
-content</strong>。</p>
-<p>对于这个问题的解决办法是 在插件内拼接好<code>content</code>准备向
-Algolia 发请求时，将这里的大量标签信息过滤一下。 目标是
-<strong>只保留汉字信息与英文单词信息，过滤掉&lt;&gt;标签信息以及一些常见的标签英文单词</strong>
-代码如下</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">extractText</span>(<span class="params">text</span>) &#123;</span><br><span class="line">  <span class="comment">// 移除 HTML 标签</span></span><br><span class="line">  text = text.<span class="title function_">replace</span>(<span class="regexp">/&lt;[^&gt;]*&gt;/g</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="comment">// 定义要移除的 HTML 标签单词列表</span></span><br><span class="line">  <span class="keyword">const</span> removeWords = [<span class="string">&#x27;p&#x27;</span>, <span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;body&#x27;</span>, <span class="string">&#x27;div&#x27;</span>, <span class="string">&#x27;span&#x27;</span>, <span class="string">&#x27;class&#x27;</span>, <span class="string">&#x27;style&#x27;</span>];</span><br><span class="line">  <span class="comment">// 构建移除这些单词的正则表达式</span></span><br><span class="line">  <span class="keyword">const</span> removeWordsRegex = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&#x27;\\b(&#x27;</span> + removeWords.<span class="title function_">join</span>(<span class="string">&#x27;|&#x27;</span>) + <span class="string">&#x27;)\\b&#x27;</span>, <span class="string">&#x27;gi&#x27;</span>);</span><br><span class="line">  <span class="comment">// 移除常见的 HTML 标签单词</span></span><br><span class="line">  text = text.<span class="title function_">replace</span>(removeWordsRegex, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="comment">// 匹配中文字符和英文单词的正则表达式</span></span><br><span class="line">  <span class="keyword">const</span> extractRegex = <span class="regexp">/[\u4e00-\u9fa5a-zA-Z]+/g</span>;</span><br><span class="line">  <span class="comment">// 提取中文字符和英文单词，并连接成一个字符串</span></span><br><span class="line">  <span class="keyword">const</span> extractedText = (text.<span class="title function_">match</span>(extractRegex) || []).<span class="title function_">join</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">  <span class="keyword">return</span> extractedText;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后将这个正则过滤的代码放到对应位置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">publishedPagesAndPosts</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> publishedPagesAndPosts.<span class="title function_">map</span>(<span class="keyword">function</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> storedPost = <span class="title function_">pick</span>(data, <span class="variable constant_">INDEXED_PROPERTIES</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ... 其他代码 ...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在上传之前过滤 content 字段</span></span><br><span class="line">    <span class="keyword">if</span> (storedPost.<span class="property">content</span>) &#123;</span><br><span class="line">      storedPost.<span class="property">content</span> = <span class="title function_">extractText</span>(storedPost.<span class="property">content</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> storedPost;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>至此，再次在终端内使用<code>hexo algolia</code>指令时就不会报错 too
-big 了，在 Algolia 的控制台内看上传 item 内的 <code>content</code>
-字段也非常紧凑了。
-当然，修改源码的方式在重新拉依赖后会被冲掉，心里有数就行。</p>
-
+          互联网行业节奏偏快，App的更新愈发频繁，如何让用户跟上更新节奏，理解产品功能，完成认知迭代，是业务发展中不可忽视的一环。同时“低代码/零代码”的理念也逐步被大众认可，相关调研报告指出“低代码/零代码”可以加速企业的数字化转型。以美团到家事业群为例，在宅经济再度升温后，即时配送应用的增长速度高于其他配送时长的应用。大量新用户的涌入既是机遇，也是挑战。目前美团到家事业群已经涵盖了医药、团餐、闪购、跑腿、团好货、无人配送等 10+ 业务线。新的商业模式意味着新领域的尝试，主业务外卖平均数日也会上线新的功能模块，这些都需要关注用户心智建设与效率提升。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/mtblog_asg/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -502,7 +263,7 @@ big 了，在 Algolia 的控制台内看上传 item 内的 <code>content</code>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/%20/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/%20/">1</a><span class="space">&hellip;</span><a class="page-number" href="/%20/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/%20/page/5/">5</a><a class="extend next" rel="next" href="/%20/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/%20/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/%20/">1</a><span class="space">&hellip;</span><a class="page-number" href="/%20/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/%20/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/%20/page/10/">10</a><a class="extend next" rel="next" href="/%20/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -568,15 +329,16 @@ big 了，在 Algolia 的控制台内看上传 item 内的 <code>content</code>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">5</span>
+          <a href="/archives">
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span>
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -624,12 +386,12 @@ big 了，在 Algolia 的控制台内看上传 item 内的 <code>content</code>
 
 <div class="copyright">
   
-  &copy; 2015 – 
+  &copy; 2014 – 
   <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">ratking2024</span>
+  <span class="author" itemprop="copyrightHolder">ratking</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>

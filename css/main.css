@@ -961,7 +961,7 @@ pre .javascript .function {
 }
 @media (max-width: 767px) {
   .content-wrap {
-    padding: 0 20px;
+    padding: 0 0px;
   }
 }
 .header {
@@ -1195,7 +1195,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #9463fc;
+  background: #fad732;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1570,12 +1570,6 @@ pre .javascript .function {
 .use-motion .comments {
   opacity: 0;
 }
-.use-motion .post-header {
-  opacity: 0;
-}
-.use-motion .post-body {
-  opacity: 0;
-}
 .use-motion .collection-header {
   opacity: 0;
 }
@@ -1690,6 +1684,28 @@ pre .javascript .function {
   position: absolute;
   top: 1.25em;
   width: 4px;
+}
+.posts-collapse .post-article {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+}
+.posts-collapse .post-title-and-thumbnail {
+  display: flex;
+  justify-content: space-between;
+}
+.posts-collapse .post-title-and-excerpt {
+  flex-grow: 1;
+}
+.posts-collapse .post-thumbnail {
+  margin-left: 20px;
+  align-self: flex-start;
+}
+.posts-collapse .thumbnail-image {
+  width: 150px; /* Adjust the width as needed */
+  height: auto;
+  border-radius: 10px; /* Rounded corners */
+  object-fit: cover; /* Resize image to fit the container */
 }
 .post-eof {
   background: #ccc;
