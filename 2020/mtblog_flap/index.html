@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
@@ -20,17 +20,22 @@
     var CONFIG = {"hostname":"dongboran.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"5TK89P0WPV","apiKey":"3a0598e9a828151201fdf9c0e571aff6","indexName":"dev_dongboran","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":false,"post_body":false,"coll_header":"slideLeftIn","sidebar":false}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Flutter 跨端技术一经推出便在业内赢得了不错的口碑，它在“多端一致”和“渲染性能”上的优势让其他跨端方案很难比拟。虽然 Flutter 的成长曲线和未来前景看起来都很好，但不可否认的是，目前 Flutter 仍处在发展阶段，很多大型互联网企业都无法毫无顾虑地让全线 App接入，而其中最主要的顾虑是包大小与动态化。动态化代表着更短的需求上线路径，代表着大大压缩了原始包的大小，从而获得更高的用户">
+  <meta name="description" content="动态化是 Flutter 无法避开的话题。本文从 Flutter 的特点讲起， 阐述了美团外卖团队在整个 Flutter 动态化上探索的心路历程，还有设计理念、核心原理以及业务应用的经验。本文的视角也不局限于框架本身，更多思考了在解决问题的过程中技术团队需要做的事情，希望能对大家有所启发和帮助。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="纯 Dart 语言 Flutter 动态化实践">
+<meta property="og:title" content="美团外卖 Flutter 动态化实践">
 <meta property="og:url" content="https://dongboran.com/2020/mtblog_flap/index.html">
-<meta property="og:site_name" content="Dante’s Blog">
-<meta property="og:description" content="Flutter 跨端技术一经推出便在业内赢得了不错的口碑，它在“多端一致”和“渲染性能”上的优势让其他跨端方案很难比拟。虽然 Flutter 的成长曲线和未来前景看起来都很好，但不可否认的是，目前 Flutter 仍处在发展阶段，很多大型互联网企业都无法毫无顾虑地让全线 App接入，而其中最主要的顾虑是包大小与动态化。动态化代表着更短的需求上线路径，代表着大大压缩了原始包的大小，从而获得更高的用户">
+<meta property="og:site_name" content="Dante’s Site">
+<meta property="og:description" content="动态化是 Flutter 无法避开的话题。本文从 Flutter 的特点讲起， 阐述了美团外卖团队在整个 Flutter 动态化上探索的心路历程，还有设计理念、核心原理以及业务应用的经验。本文的视角也不局限于框架本身，更多思考了在解决问题的过程中技术团队需要做的事情，希望能对大家有所启发和帮助。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-06-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-05T13:13:13.361Z">
+<meta property="og:image" content="https://dongboran.com/images/blog/2020flap/2020flap_01.png">
+<meta property="article:published_time" content="2020-06-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-18T03:46:26.297Z">
 <meta property="article:author" content="Dante">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="动态化">
+<meta property="article:tag" content="Flutter">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dongboran.com/images/blog/2020flap/2020flap_01.png">
 
 <link rel="canonical" href="https://dongboran.com/2020/mtblog_flap/">
 
@@ -45,7 +50,7 @@
   };
 </script>
 
-  <title>纯 Dart 语言 Flutter 动态化实践 | Dante’s Blog</title>
+  <title>美团外卖 Flutter 动态化实践 | Dante’s Site</title>
   
 
 
@@ -98,7 +103,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Dante’s Blog</h1>
+      <h1 class="site-title">Dante’s Site</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">Stay curious, stay hungry, and never stop hunting.</p>
@@ -202,11 +207,11 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dante’s Blog">
+      <meta itemprop="name" content="Dante’s Site">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          纯 Dart 语言 Flutter 动态化实践
+          美团外卖 Flutter 动态化实践
         </h1>
 
         <div class="post-meta">
@@ -216,7 +221,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-06-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-23T00:00:00+08:00">2020-06-23</time>
+              <time title="Created: 2020-06-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-24T00:00:00+08:00">2020-06-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,8 +244,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>默认文案
-https://tech.meituan.com/2020/06/23/meituan-flutter-flap.html</p>
+        <p>动态化是 Flutter 无法避开的话题。本文从 Flutter 的特点讲起，
+阐述了美团外卖团队在整个 Flutter
+动态化上探索的心路历程，还有设计理念、核心原理以及业务应用的经验。本文的视角也不局限于框架本身，更多思考了在解决问题的过程中技术团队需要做的事情，希望能对大家有所启发和帮助。</p>
+<p>(本文是博主在其他正式博客组织发布的文章，直接添加外链)<br >
+美团技术博客原文：<a
+target="_blank" rel="noopener" href="https://tech.meituan.com/2020/06/23/meituan-flutter-flap.html">《美团外卖Flutter动态化实践
+》</a><br /> 微信公众号原文：<a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/wjEvtvexYytzSy5RwqGQyw">《美团外卖Flutter动态化实践
+》</a></p>
+<p><img src="/images/blog/2020flap/2020flap_01.png" alt="home" width="800"/></p>
 
     </div>
 
@@ -249,6 +262,11 @@ https://tech.meituan.com/2020/06/23/meituan-flutter-flap.html</p>
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E5%8C%96/" rel="tag"># 动态化</a>
+              <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+          </div>
 
         
 
@@ -260,8 +278,8 @@ https://tech.meituan.com/2020/06/23/meituan-flutter-flap.html</p>
       <i class="fa fa-chevron-left"></i> Category 特性在组件化中的应用于管控
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/mtblog_asg/" rel="next" title="技术栈无关的剧本式引导">
-      技术栈无关的剧本式引导 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/mtblog_flap_geek/" rel="next" title="纯 Dart 语言 Flutter 动态化原理剖析">
+      纯 Dart 语言 Flutter 动态化原理剖析 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -335,7 +353,7 @@ https://tech.meituan.com/2020/06/23/meituan-flutter-flap.html</p>
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -344,6 +362,10 @@ https://tech.meituan.com/2020/06/23/meituan-flutter-flap.html</p>
           
         <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
@@ -391,12 +413,12 @@ https://tech.meituan.com/2020/06/23/meituan-flutter-flap.html</p>
 
 <div class="copyright">
   
-  &copy; 2014 – 
-  <span itemprop="copyrightYear">2024</span>
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">ratking</span>
+  <span class="author" itemprop="copyrightHolder">ratking2024</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>

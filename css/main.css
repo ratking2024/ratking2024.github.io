@@ -177,7 +177,7 @@ body {
 body {
   background: var(--body-bg-color);
   color: var(--text-color);
-  font-family: 'Poetsen One', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'MaShanZheng, PoetsenOne', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
 }
@@ -193,7 +193,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Poetsen One', 'Poetsen One', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'MaShanZheng, PoetsenOne', 'MaShanZheng, PoetsenOne', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -416,7 +416,7 @@ pre {
 }
 pre,
 code {
-  font-family: 'PT Mono', consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+  font-family: 'PoetsenOne', consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
 }
 code {
   background: #eee;
@@ -1011,7 +1011,7 @@ pre .javascript .function {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 'Poetsen One', 'Poetsen One', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'MaShanZheng, PoetsenOne', 'MaShanZheng, PoetsenOne', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1195,7 +1195,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fad732;
+  background: #adff16;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1535,7 +1535,7 @@ pre .javascript .function {
   }
 }
 .post-body {
-  font-family: 'Poetsen One', 'Poetsen One', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'MaShanZheng, PoetsenOne', 'MaShanZheng, PoetsenOne', "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1603,7 +1603,7 @@ pre .javascript .function {
 .posts-collapse .collection-year {
   font-size: 1.5em;
   font-weight: bold;
-  margin: 60px 0;
+  margin: 15px 0;
   position: relative;
 }
 .posts-collapse .collection-year::before {
@@ -1628,7 +1628,7 @@ pre .javascript .function {
 }
 .posts-collapse .post-header {
   border-bottom: 1px dashed #ccc;
-  margin: 10px 0;
+  margin: 5px 0;
   padding-left: 15px;
   position: relative;
   transition-property: border;
@@ -1665,11 +1665,12 @@ pre .javascript .function {
 }
 .posts-collapse .post-title {
   display: inline;
+  font-size: 1.1em;
 }
 .posts-collapse .post-title a,
 .posts-collapse .post-title span.exturl {
   border-bottom: none;
-  color: var(--link-color);
+  color: #333;
 }
 .posts-collapse .post-title .fa-external-link-alt {
   font-size: 0.875em;
@@ -1688,24 +1689,74 @@ pre .javascript .function {
 .posts-collapse .post-article {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 .posts-collapse .post-title-and-thumbnail {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
 }
 .posts-collapse .post-title-and-excerpt {
-  flex-grow: 1;
+  flex: 1;
+  min-width: 0;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.posts-collapse .post-title-and-excerpt .post-excerpt {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
 }
 .posts-collapse .post-thumbnail {
-  margin-left: 20px;
-  align-self: flex-start;
+  flex: 0 0 150px;
+  width: 150px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.posts-collapse .post-thumbnail:hover .preview-image {
+  opacity: 1;
+  visibility: visible;
 }
 .posts-collapse .thumbnail-image {
-  width: 150px; /* Adjust the width as needed */
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 4px;
+  object-fit: contain;
+  display: block;
+}
+.posts-collapse .thumbnail-image:hover {
+  cursor: zoom-in;
+}
+.posts-collapse .preview-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  max-width: 50vw;
   height: auto;
-  border-radius: 10px; /* Rounded corners */
-  object-fit: cover; /* Resize image to fit the container */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  background: #fff;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+  object-fit: contain;
 }
 .post-eof {
   background: #ccc;
@@ -1849,7 +1900,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'Poetsen One', 'Poetsen One', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'MaShanZheng, PoetsenOne', 'MaShanZheng, PoetsenOne', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin: 3px 0 10px 0;
   text-align: center;
@@ -2466,14 +2517,17 @@ embed {
 body {
   background: url("/images/bg.svg") no-repeat center center fixed;
   background-size: cover;
+  font-family: 'MaShanZheng', 'PoetsenOne', sans-serif;
 }
 .post-block {
   background: #fff;
   padding: 10px;
+  font-family: 'MaShanZheng', 'PoetsenOne', sans-serif;
 }
 .post-body {
   background: #fff;
   padding: 10px;
+  font-family: 'MaShanZheng', 'PoetsenOne', sans-serif;
 }
 /* 减少按钮与自定义内容之间的间距 */
 .site-nav {
@@ -2483,28 +2537,74 @@ body {
   margin-top: 5px; /* 调整为期望的间距大小 */
 }
 code {
-  color: #008b45;
+  font-family: 'PoetsenOne', monospace;
+  color: #3e8e41;
   white-space: pre-wrap; /* 允许自动换行并保持空白符 */
   word-break: break-all; /* 可以在单词内换行 */
+  border-radius: 6px; /* 添加圆角 */
 }
 /* 设置所有 Markdown 标题的颜色 */
 h3,
 h4,
 h5 {
-  color: #f90; /* 替换为你想要的颜色 */
+  color: #007bff; /* 替换为你想要的颜色 原先#ff9900*/
+  font-family: 'MaShanZheng', 'PoetsenOne', sans-serif;
 }
 h1 {
   font-weight: bold;
   letter-spacing: 0.1em;
+  font-family: 'MaShanZheng', 'PoetsenOne', sans-serif;
+}
+/* 设置站点标题字体 */
+.site-title {
+  font-family: 'PoetsenOne', sans-serif !important;
 }
 /* 设置正文中超链接的颜色和加粗 */
 .post-body a {
-  color: #1169ee; /* 替换为你想要的颜色 */
+  color: #1da1f2; /* 替换为你想要的颜色 */
   font-weight: bold;
+  font-family: 'MaShanZheng', 'PoetsenOne', sans-serif;
+  border-bottom: 1px solid #1da1f2; /* 添加与文字颜色相同的下划线 */
+}
+/* 设置超链接悬停效果 */
+.post-body a:hover {
+  color: #1da1f2;
+  border-bottom-color: #1da1f2;
+}
+/* 代码块容器样式 */
+.highlight {
+  border-radius: 6px;
+  margin: 20px 0;
+}
+.highlight pre {
+  border-radius: 6px;
+}
+/* 行内代码样式 */
+p code,
+li code {
+  padding: 2px 4px;
+  border-radius: 4px;
+  background-color: #f8f9fa;
 }
 @font-face {
-  font-family: 'Poetsen One';
+  font-family: 'PoetsenOne';
   src: url("/fonts/PoetsenOne-Regular.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'MaShanZheng';
+  src: url("/fonts/NotoSerifSC-SemiBold.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF;
+}
+@font-face {
+  font-family: 'EnglishFont';
+  src: url("/fonts/PoetsenOne-Regular.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'ChineseFont';
+  src: url("/fonts/MaShanZheng-Regular.ttf") format('truetype');
 }

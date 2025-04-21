@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
@@ -20,17 +20,22 @@
     var CONFIG = {"hostname":"dongboran.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"5TK89P0WPV","apiKey":"3a0598e9a828151201fdf9c0e571aff6","indexName":"dev_dongboran","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":false,"post_body":false,"coll_header":"slideLeftIn","sidebar":false}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Category 是 Objective-C 2.0之后添加的语言特性。Category 就是对装饰模式的一种具体实现。它的主要作用是在不改变原有类的前提下，动态地给这个类添加一些方法。在 Objective-C（iOS 的开发语言，下文用 OC 代替）中的具体体现为：实例（类）方法、属性和协议。">
+  <meta name="description" content="随着移动互联网的快速发展，不断迭代的移动端工程往往面临着耦合严重、维护效率低、开发不够敏捷等常见问题，因此越来越多的公司开始推行“组件化”，通过解耦重组组件来提高并行开发效率。但是大多数团队口中的“组件化”就是把代码分库，主工程使用CocoaPods工具把各个子库的版本号聚合起来。但能合理的把组件分层，并且有一整套工具链支撑发版与集成的公司较少，导致开发效率很难有明显地提升。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Category 特性在组件化中的应用于管控">
 <meta property="og:url" content="https://dongboran.com/2018/mtblog_category_ios/index.html">
-<meta property="og:site_name" content="Dante’s Blog">
-<meta property="og:description" content="Category 是 Objective-C 2.0之后添加的语言特性。Category 就是对装饰模式的一种具体实现。它的主要作用是在不改变原有类的前提下，动态地给这个类添加一些方法。在 Objective-C（iOS 的开发语言，下文用 OC 代替）中的具体体现为：实例（类）方法、属性和协议。">
+<meta property="og:site_name" content="Dante’s Site">
+<meta property="og:description" content="随着移动互联网的快速发展，不断迭代的移动端工程往往面临着耦合严重、维护效率低、开发不够敏捷等常见问题，因此越来越多的公司开始推行“组件化”，通过解耦重组组件来提高并行开发效率。但是大多数团队口中的“组件化”就是把代码分库，主工程使用CocoaPods工具把各个子库的版本号聚合起来。但能合理的把组件分层，并且有一整套工具链支撑发版与集成的公司较少，导致开发效率很难有明显地提升。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://dongboran.com/images/blog/2018cate/2018cate_01.png">
 <meta property="article:published_time" content="2018-11-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-05T11:36:41.251Z">
+<meta property="article:modified_time" content="2025-04-18T03:33:55.227Z">
 <meta property="article:author" content="Dante">
+<meta property="article:tag" content="工程化">
+<meta property="article:tag" content="组件化">
+<meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dongboran.com/images/blog/2018cate/2018cate_01.png">
 
 <link rel="canonical" href="https://dongboran.com/2018/mtblog_category_ios/">
 
@@ -45,7 +50,7 @@
   };
 </script>
 
-  <title>Category 特性在组件化中的应用于管控 | Dante’s Blog</title>
+  <title>Category 特性在组件化中的应用于管控 | Dante’s Site</title>
   
 
 
@@ -98,7 +103,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Dante’s Blog</h1>
+      <h1 class="site-title">Dante’s Site</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">Stay curious, stay hungry, and never stop hunting.</p>
@@ -202,7 +207,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dante’s Blog">
+      <meta itemprop="name" content="Dante’s Site">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -239,8 +244,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>默认文案
-https://tech.meituan.com/2018/11/08/ios-category-module-communicate.html</p>
+        <p>Category 是 Objective-C
+2.0之后添加的语言特性。随着移动互联网的快速发展，不断迭代的移动端工程往往面临着耦合严重、维护效率低、开发不够敏捷等常见问题，因此越来越多的公司开始推行“组件化”，通过解耦重组组件来提高并行开发效率。但是大多数团队口中的“组件化”就是把代码分库，主工程使用
+CocoaPods
+工具把各个子库的版本号聚合起来。但能合理的把组件分层，并且有一整套工具链支撑发版与集成的公司较少，导致开发效率很难有明显地提升。</p>
+<p>(本文是博主在其他正式博客组织发布的文章，直接添加外链)<br >
+美团技术博客原文：<a
+target="_blank" rel="noopener" href="https://tech.meituan.com/2018/11/08/ios-category-module-communicate.html">《Category
+特性在 iOS 组件化中的应用与管控》</a><br /> 微信公众号原文：<a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/5ucpVa6ku4b9_pfMP9CqlQ">《Category
+特性在 iOS 组件化中的应用与管控》</a></p>
+<p><img src="/images/blog/2018cate/2018cate_01.png" alt="home" width="500"/></p>
 
     </div>
 
@@ -249,6 +263,11 @@ https://tech.meituan.com/2018/11/08/ios-category-module-communicate.html</p>
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag"># 工程化</a>
+              <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" rel="tag"># 组件化</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
 
         
 
@@ -260,8 +279,8 @@ https://tech.meituan.com/2018/11/08/ios-category-module-communicate.html</p>
       <i class="fa fa-chevron-left"></i> 美团外卖多端复用与架构演进
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/mtblog_flap/" rel="next" title="纯 Dart 语言 Flutter 动态化实践">
-      纯 Dart 语言 Flutter 动态化实践 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/mtblog_flap/" rel="next" title="美团外卖 Flutter 动态化实践">
+      美团外卖 Flutter 动态化实践 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -335,7 +354,7 @@ https://tech.meituan.com/2018/11/08/ios-category-module-communicate.html</p>
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -344,6 +363,10 @@ https://tech.meituan.com/2018/11/08/ios-category-module-communicate.html</p>
           
         <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
@@ -391,12 +414,12 @@ https://tech.meituan.com/2018/11/08/ios-category-module-communicate.html</p>
 
 <div class="copyright">
   
-  &copy; 2014 – 
-  <span itemprop="copyrightYear">2024</span>
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">ratking</span>
+  <span class="author" itemprop="copyrightHolder">ratking2024</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>

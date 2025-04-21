@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
@@ -22,9 +22,9 @@
 
   <meta name="description" content="Interesting">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dante’s Blog">
+<meta property="og:title" content="Dante’s Site">
 <meta property="og:url" content="https://dongboran.com/categories/MTBlog/index.html">
-<meta property="og:site_name" content="Dante’s Blog">
+<meta property="og:site_name" content="Dante’s Site">
 <meta property="og:description" content="Interesting">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Dante">
@@ -43,7 +43,7 @@
   };
 </script>
 
-  <title>Category: MTBlog | Dante’s Blog</title>
+  <title>Category: MTBlog | Dante’s Site</title>
   
 
 
@@ -96,7 +96,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Dante’s Blog</h1>
+      <h1 class="site-title">Dante’s Site</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">Stay curious, stay hungry, and never stop hunting.</p>
@@ -206,13 +206,16 @@
         <div class="post-title-and-excerpt">
           <div class="post-title">
               <a class="post-title-link" href="/2022/mtblog_asg/" itemprop="url">
-                <span itemprop="name">技术栈无关的剧本式引导</span>
+                <span itemprop="name">终端新玩法：技术栈无关的剧本式引导</span>
               </a>
           </div>
           <div class="post-excerpt">
-            互联网行业节奏偏快，App的更新愈发频繁，如何让用户跟上更新节奏，理解产品功能，完成认知迭代，是业务发展中不可忽视的一环。同时“低代码/零代码”的理念也逐步被大众认可，相关调研报告指出“低代码/零代码”可以加速企业的数字化转型。以美团到家事业群为例，在宅经济再度升温后，即时配送应用的增长速度高于其他配送时长的应用。大量新用户的涌入既是机遇，也是挑战。目前美团到家事业群已经涵盖了医药、团餐、闪购、跑...
+            App引导是端上做心智建设的重要手段，我们尝试了“剧本式”思维获得了较好效果。在想法落地时，相关研发工作量较大，而且终端技术栈多样化，需要做到“零代码”和“技术栈无关”。最终我们通过“图像匹配”与“标准协议”等核心方案实现了突破。本文将介绍该项目的思考过程，并会对关键技术方案进行剖析和解读，希望能给从事相关开发工作的同学以启发。
           </div>
         </div>
+          <div class="post-thumbnail">
+            <img src="/images/blog/2022jbsyd/2022jbsyd_01.png" alt="终端新玩法：技术栈无关的剧本式引导" class="thumbnail-image">
+          </div>
       </div>
       <div class="post-meta">
         <time itemprop="dateCreated"
@@ -229,20 +232,50 @@
       <div class="post-title-and-thumbnail">
         <div class="post-title-and-excerpt">
           <div class="post-title">
-              <a class="post-title-link" href="/2020/mtblog_flap/" itemprop="url">
-                <span itemprop="name">纯 Dart 语言 Flutter 动态化实践</span>
+              <a class="post-title-link" href="/2020/mtblog_flap_geek/" itemprop="url">
+                <span itemprop="name">纯 Dart 语言 Flutter 动态化原理剖析</span>
               </a>
           </div>
           <div class="post-excerpt">
-            Flutter 跨端技术一经推出便在业内赢得了不错的口碑，它在“多端一致”和“渲染性能”上的优势让其他跨端方案很难比拟。虽然 Flutter 的成长曲线和未来前景看起来都很好，但不可否认的是，目前 Flutter 仍处在发展阶段，很多大型互联网企业都无法毫无顾虑地让全线...
+            美团外卖团队从 2019 年 6 月开始投入对动态化的研究，目前已在多个业务模块上线，内部项目代号 “Flap” 。此方案的特点在于动态化需求开发方式与普通 Dart 开发无异，且运行时的页面树构建与事件逻辑不再分开，除 Dart 外不引入其他技术栈与虚拟机。尽可能的降低跨端通信的损耗，并将一些耗时操作转由线下执行，以达到高效运行的目的。
           </div>
         </div>
+          <div class="post-thumbnail">
+            <img src="/images/blog/2020flapgeek/2020flapgeek_01.png" alt="纯 Dart 语言 Flutter 动态化原理剖析" class="thumbnail-image">
+          </div>
       </div>
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2020-06-23T00:00:00+08:00"
-              content="2020-06-23">
-          2020-06-23
+              datetime="2020-07-30T00:00:00+08:00"
+              content="2020-07-30">
+          2020-07-30
+        </time>
+      </div>
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-article">
+    <header class="post-header">
+      <div class="post-title-and-thumbnail">
+        <div class="post-title-and-excerpt">
+          <div class="post-title">
+              <a class="post-title-link" href="/2020/mtblog_flap/" itemprop="url">
+                <span itemprop="name">美团外卖 Flutter 动态化实践</span>
+              </a>
+          </div>
+          <div class="post-excerpt">
+            动态化是 Flutter 无法避开的话题。本文从 Flutter 的特点讲起， 阐述了美团外卖团队在整个 Flutter 动态化上探索的心路历程，还有设计理念、核心原理以及业务应用的经验。本文的视角也不局限于框架本身，更多思考了在解决问题的过程中技术团队需要做的事情，希望能对大家有所启发和帮助。
+          </div>
+        </div>
+          <div class="post-thumbnail">
+            <img src="/images/blog/2020flap/2020flap_01.png" alt="美团外卖 Flutter 动态化实践" class="thumbnail-image">
+          </div>
+      </div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2020-06-24T00:00:00+08:00"
+              content="2020-06-24">
+          2020-06-24
         </time>
       </div>
     </header>
@@ -258,9 +291,12 @@
               </a>
           </div>
           <div class="post-excerpt">
-            Category 是 Objective-C 2.0之后添加的语言特性。Category 就是对装饰模式的一种具体实现。它的主要作用是在不改变原有类的前提下，动态地给这个类添加一些方法。在 Objective-C（iOS 的开发语言，下文用 OC 代替）中的具体体现为：实例（类）方法、属性和协议。
+            随着移动互联网的快速发展，不断迭代的移动端工程往往面临着耦合严重、维护效率低、开发不够敏捷等常见问题，因此越来越多的公司开始推行“组件化”，通过解耦重组组件来提高并行开发效率。但是大多数团队口中的“组件化”就是把代码分库，主工程使用CocoaPods工具把各个子库的版本号聚合起来。但能合理的把组件分层，并且有一整套工具链支撑发版与集成的公司较少，导致开发效率很难有明显地提升。
           </div>
         </div>
+          <div class="post-thumbnail">
+            <img src="/images/blog/2018cate/2018cate_01.png" alt="Category 特性在组件化中的应用于管控" class="thumbnail-image">
+          </div>
       </div>
       <div class="post-meta">
         <time itemprop="dateCreated"
@@ -282,15 +318,18 @@
               </a>
           </div>
           <div class="post-excerpt">
-            美团外卖2013年11月开始起步，随后高速发展，不断刷新多项行业记录。截止至2018年5月19日，日订单量峰值已超过2000万，是全球规模最大的外卖平台。业务的快速发展对技术支撑提出了更高的要求。为线上用户提供高稳定的服务体验，保障全链路业务和系统高可用运行的同时，要提升多入口业务的研发速度，推进App系统架构的合理演化，进一步提升跨部门跨地域团队之间的协作效率。而另一方面随着用户数与订单数的高速...
+            美团外卖2013年11月开始起步，随后高速发展，不断刷新多项行业记录。截止至2018年5月19日，日订单量峰值已超过2000万，是全球规模最大的外卖平台。业务的快速发展对技术支撑提出了更高的要求：为线上用户提供高稳定的服务体验，保障全链路业务和系统高可用运行的同时，要提升多入口业务的研发速度，推进App系统架构的合理演化，进一步提升跨部门跨地域团队之间的协作效率。
           </div>
         </div>
+          <div class="post-thumbnail">
+            <img src="/images/blog/2018ddfy/2018ddfy_01.jpeg" alt="美团外卖多端复用与架构演进" class="thumbnail-image">
+          </div>
       </div>
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2018-06-29T00:00:00+08:00"
-              content="2018-06-29">
-          2018-06-29
+              datetime="2018-06-28T00:00:00+08:00"
+              content="2018-06-28">
+          2018-06-28
         </time>
       </div>
     </header>
@@ -368,7 +407,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -377,6 +416,10 @@
           
         <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
@@ -424,12 +467,12 @@
 
 <div class="copyright">
   
-  &copy; 2014 – 
-  <span itemprop="copyrightYear">2024</span>
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">ratking</span>
+  <span class="author" itemprop="copyrightHolder">ratking2024</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
