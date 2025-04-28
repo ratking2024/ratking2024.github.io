@@ -1,37 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>HelloWorld</title>
-    <url>/2024/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-star">Quick Star</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>single</category>
-      </categories>
-  </entry>
-  <entry>
     <title>校招-计算机基础题库</title>
     <url>/2014/ms_base/</url>
     <content><![CDATA[<p>包括 计算机CS基础/数据结构算法/操作系统/编译原理</p>
@@ -167,6 +136,191 @@ IPv4&amp;IPv6、三次握手、外网内网
       </categories>
   </entry>
   <entry>
+    <title>家庭科学上网环境搭建：DHCP+软路由+Surge方案</title>
+    <url>/2016/home_network_surge/</url>
+    <content><![CDATA[<h3 id="软硬件依赖项">软硬件依赖项</h3>
+<h4 id="前置准备">前置准备</h4>
+<ol type="1">
+<li>华硕路由器：推荐型号 <strong>RT - AC86U</strong>，可刷
+<strong>Merlin（梅林）固件</strong>（如 386.xx 系列），价格约 1000
+元，梅林固件支持更多自定义功能。<br />
+</li>
+<li>Mac mini：建议安装最新的 <strong>macOS 系统</strong>（如 macOS
+Ventura 及后续版本），硬件配置根据预算选择，基础款（8GB 内存 + 256GB
+存储）价格约 5000 - 6000 元，如需更好性能可升级配置。<br />
+</li>
+<li>Surge 软件：运行于 Mac mini
+或客户端设备，用于实现流量规则分流与代理协议解析。官网 <a
+href="https://macos.surge.sh">https://macos.surge.sh</a>，费用约 200 -
+300 元（一次性买断）。<br />
+</li>
+<li>千兆局域网环境：确保内网数据传输无瓶颈。(网络套餐可以与自己的手机套餐绑定)</li>
+</ol>
+<h4 id="网络架构逻辑">网络架构逻辑</h4>
+<p>采用分层代理 + DNS 分流架构：</p>
+<ol type="1">
+<li>第一层：华硕路由器作为主路由，负责 DHCP
+分配、局域网管理及基础网络策略；<br />
+</li>
+<li>第二层：Mac mini 作为软路由，承担 DNS 解析、流量加密 /
+解密及代理协议转发（如 Shadowsocks）；<br />
+</li>
+<li>第三层：Surge 规则引擎实现精细化流量控制，区分国内 /
+国际流量路径，确保国内服务直连、国际服务走代理。</li>
+</ol>
+<h3 id="vps-搭建以搬瓦工为例">VPS 搭建（以搬瓦工为例）</h3>
+<h4 id="云主机服务">云主机服务</h4>
+<ol type="1">
+<li>访问 <a
+href="https://bwh81.net/">搬瓦工官网</a>，注册账号后选择套餐。推荐含
+<strong>CN2 GIA 线路</strong>的套餐（如 “CN2 GIA-E”
+系列），该线路对国内优化较好，延迟低、速度快。购买时选择合适的配置（如
+1GB 内存 + 20GB 硬盘 + 1Gbps 带宽），价格约 100 - 200 美元/年。<br />
+</li>
+<li>购买后在搬瓦工后台获取 VPS 的 IP 地址、用户名、密码等信息。通过 SSH
+工具（如 Putty）连接 VPS，安装 Shadowsocks
+服务端程序（具体安装命令需根据 VPS 系统选择，如 CentOS 系统可参考
+<code>yum install -y python-pip &amp;&amp; pip install shadowsocks</code>，然后编辑配置文件
+<code>ssserver -c /etc/shadowsocks.json -d start</code>），并设置加密方式（如
+<code>chacha20-ietf-poly1305</code>）。</li>
+</ol>
+<h4 id="固件升级与-ssh-开启">固件升级与 SSH 开启</h4>
+<p>通过官方渠道将华硕路由器固件升级至 Merlin
+系统最新版本，进入「系统管理 - 系统设置」启用 SSH
+服务，建议采用密钥认证提升安全性。</p>
+<h4 id="shadowsocks-插件配置">Shadowsocks 插件配置</h4>
+<p>在「科学上网」插件模块中配置 Shadowsocks 服务：</p>
+<ul>
+<li><strong>服务器参数</strong>：填写搬瓦工 VPS 提供的 IP
+地址、端口号、加密方式（推荐
+<code>chacha20-ietf-poly1305</code>）。<br />
+</li>
+<li><strong>混淆设置</strong>：启用 HTTP
+混淆模式，规避网络审查机制。<br />
+</li>
+<li><strong>全局模式</strong>：关闭路由器级全局代理，采用终端设备独立调度策略。</li>
+</ul>
+<h3 id="mac-mini-软路由功能实现">Mac mini 软路由功能实现</h3>
+<h4 id="系统环境准备">系统环境准备</h4>
+<p>安装 macOS Server 或 Ubuntu Server 系统，启用 “共享互联网”
+功能，配置为双向网络桥接（一端连接路由器 LAN
+口，另一端作为虚拟网卡承载代理流量）。</p>
+<h4 id="dns-分流系统搭建">DNS 分流系统搭建</h4>
+<p>安装 Dnsmasq 并配置分流规则，将国际域名解析指向公共 DNS（如
+Cloudflare 1.1.1.1），国内域名解析保留本地 DNS：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server=/abc.com/1.1.1.1          # 特定域名强制走代理DNS  </span><br><span class="line">server=/google.com/1.1.1.1  </span><br><span class="line">server=/local/192.168.50.1      # 局域网域名解析指向路由器  </span><br></pre></td></tr></table></figure></p>
+<h4 id="双网络接口配置">双网络接口配置</h4>
+<ol type="1">
+<li>物理接口 1（有线）：连接路由器 LAN 口，设置静态 IP（如
+<code>192.168.50.2</code>），作为内网通信入口。<br />
+</li>
+<li>物理接口 2（有线/无线）：作为软路由出口（若 Mac mini
+仅单网口，需通过 USB 转网口扩展）。</li>
+</ol>
+<h4 id="dns-解析服务迁移">DNS 解析服务迁移</h4>
+<ol type="1">
+<li>安装 <code>dnsmasq</code> 服务并配置：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;server=114.114.114.114&quot;</span> &gt;&gt; /usr/local/etc/dnsmasq.conf  <span class="comment"># 国内 DNS 上游服务器  </span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;server=8.8.8.8&quot;</span> &gt;&gt; /usr/local/etc/dnsmasq.conf          <span class="comment"># 境外 DNS 上游服务器  </span></span><br></pre></td></tr></table></figure></li>
+<li>启用系统级代理转发，通过 <code>pf</code>
+防火墙规则实现流量分流：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl net.inet.ip.forwarding=1  </span><br><span class="line">pfctl -ef /etc/pf.conf  <span class="comment"># 加载自定义流量转发规则  </span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="性能优化策略">性能优化策略</h4>
+<ol type="1">
+<li>关闭 Mac mini 系统休眠功能，确保 7×24 小时稳定运行。<br />
+</li>
+<li>通过「活动监视器」监控 CPU 与内存占用，若处理 8K
+视频出现卡顿，可升级至 64 位处理器型号。</li>
+</ol>
+<h3 id="surge-规则编写与流量调度">Surge 规则编写与流量调度</h3>
+<h4 id="规则文件结构设计">规则文件结构设计</h4>
+<p>在 Surge 配置文件中定义分流逻辑，以下是常用网站清单：<br />
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Proxy]</span></span><br><span class="line">SS, SS_SERVER, 192.168.50.2, 8388, <span class="attr">password</span>=your_secure_password, method=chacha20 - ietf - poly1305</span><br><span class="line"><span class="section">[Rule]</span></span><br><span class="line"><span class="comment">; 境外常用网站（Top 20）</span></span><br><span class="line">DOMAIN - SUFFIX,google.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,youtube.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,facebook.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,twitter.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,instagram.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,netflix.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,linkedin.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,dropbox.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,github.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,quora.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,pinterest.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,reddit.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,stackoverflow.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,twitch.tv,PROXY</span><br><span class="line">DOMAIN - SUFFIX,zoom.us,PROXY</span><br><span class="line">DOMAIN - SUFFIX,spotify.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,airbnb.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,booking.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,nytimes.com,PROXY</span><br><span class="line">DOMAIN - SUFFIX,bloomberg.com,PROXY</span><br><span class="line"><span class="comment">; 境内常用网站（Top 20）</span></span><br><span class="line">DOMAIN - SUFFIX,baidu.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,taobao.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,jd.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,qq.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,weibo.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,zhihu.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,aliyun.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,tmall.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,163.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,sina.com.cn,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,gov.cn,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,csdn.net,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,meituan.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,ele.me,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,kanzhun.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,zhongan.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,douban.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,xin.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,guazi.com,DIRECT</span><br><span class="line">DOMAIN - SUFFIX,lianjia.com,DIRECT</span><br><span class="line"><span class="comment">; 通用规则</span></span><br><span class="line">GEOIP,CN,DIRECT</span><br><span class="line">DEFAULT,PROXY</span><br><span class="line"><span class="comment">; 原有示例补充（可根据实际调整）</span></span><br><span class="line">DOMAIN - SUFFIX, iqiyi.com, DIRECT</span><br><span class="line">DOMAIN - SUFFIX, qq.com, DIRECT</span><br><span class="line">IP - CIDR, 192.168.0.0/16, DIRECT</span><br><span class="line"><span class="section">[DNS]</span></span><br><span class="line"><span class="attr">server</span> = <span class="number">192.168</span>.<span class="number">50.2</span>, <span class="number">114.114</span>.<span class="number">114.114</span>, <span class="number">8.8</span>.<span class="number">8.8</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="性能优化配置">性能优化配置</h4>
+<p>在 Surge 设置中启用 “硬件加速” 选项（若 Mac mini 支持 AVX
+指令集），并调整 TCP 缓冲区参数以提升 8K 视频流传输稳定性：
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">net.inet.tcp.rfc1323=1</span><br><span class="line">net.inet.tcp.window_scale=1</span><br></pre></td></tr></table></figure></p>
+<h3 id="网络细节配置">网络细节配置</h3>
+<h4 id="dhcp-与-ip-分配">DHCP 与 IP 分配</h4>
+<ol type="1">
+<li>路由器 DHCP 配置：设置 Mac mini 的 IP 为静态（如
+<code>192.168.50.2</code>），保留该 IP 不参与自动分配。其他设备 IP
+分配区间可设为 <code>192.168.50.3 - 192.168.50.254</code>。<br />
+</li>
+<li>终端设备设置：将设备的 DNS 地址手动设置为 Mac mini 的
+IP（<code>192.168.50.2</code>），确保解析请求通过 Mac mini 处理。</li>
+</ol>
+<h4 id="路由器信号增强与中继配置">路由器信号增强与中继配置</h4>
+<ol type="1">
+<li>信号增强：进入路由器「无线设置」，将无线信号强度调至「高」（不同路由器界面名称可能不同）。<br />
+</li>
+<li>中继配置：若使用多个路由器中继，需统一所有路由器的 SSID
+和密码，关闭从路由器的 DHCP 功能，并将其 LAN 口连接主路由器 LAN
+口（或通过无线桥接），确保所有设备在同一局域网内，且 DNS 均指向 Mac
+mini。</li>
+</ol>
+<h3 id="高性能访问优化方案">高性能访问优化方案</h3>
+<h4 id="加密算法选择">加密算法选择</h4>
+<p>针对 YouTube 8K 视频等高带宽需求场景，在 Shadowsocks 客户端配置中选用
+<code>aes - 256 - gcm</code> 算法，利用 Mac mini
+的硬件加密加速功能降低延迟。</p>
+<h4 id="内网传输优化">内网传输优化</h4>
+<ol type="1">
+<li>路由器开启 802.11ac Wave 2 协议，启用 MU - MIMO
+技术提升多设备并发性能。<br />
+</li>
+<li>Mac mini 与路由器通过 CAT6
+网线直连，确保代理数据转发速率达千兆级别。</li>
+</ol>
+<h3 id="系统验证与故障排查">系统验证与故障排查</h3>
+<h4 id="带宽压力测试">带宽压力测试</h4>
+<p>通过 YouTube 8K 测试视频（如《Sailing》）验证传输稳定性，确保 Mac
+mini CPU 负载低于 70%，内存占用低于 80%。</p>
+<h4 id="分流规则验证">分流规则验证</h4>
+<p>使用 <code>dig</code> 命令检查域名解析路径：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dig</span> @192.168.50.2 netflix.com   <span class="co"># 应返回代理DNS解析结果  </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">dig</span> @192.168.50.2 qq.com        <span class="co"># 应返回本地DNS解析结果  </span></span></code></pre></div>
+<ol type="1">
+<li>终端设备设置 DNS 为 Mac mini IP，访问 <code>youtube.com</code> 验证
+8K 视频加载速度。<br />
+</li>
+<li>打开爱奇艺客户端，确认视频播放不触发代理流量。</li>
+</ol>
+<h4 id="性能监控">性能监控</h4>
+<ol type="1">
+<li>通过路由器后台查看实时带宽占用，确保代理通道未出现拥塞。<br />
+</li>
+<li>在 Mac mini 终端执行 <code>top</code> 命令，监控
+<code>ss - local</code> 与 <code>dnsmasq</code> 进程资源占用。</li>
+</ol>
+<h4 id="常见故障处理">常见故障处理</h4>
+<p>若视频加载卡顿，检查 Shadowsocks
+节点带宽及加密算法性能，可尝试切换至更高效的混淆模式（如
+<code>simple - obfs</code>）；若国内应用走代理，需修正 Surge
+规则中的域名匹配逻辑，确保国内域名未被错误标记为代理目标。</p>
+<h3 id="后续">后续</h3>
+<ol type="1">
+<li><strong>多用户管理</strong>：通过 Shadowsocks
+多用户配置文件（<code>user - config.json</code>）实现家庭成员独立账号分配，设置流量配额限制。<br />
+</li>
+<li><strong>数据加密增强</strong>：在 Mac mini 与路由器之间部署 IPsec
+隧道（如 StrongSwan），对代理流量进行二次加密，提升传输安全性。<br />
+</li>
+<li><strong>合规性提示</strong>：本方案仅用于技术研究与合法合规场景，使用者需严格遵守国家网络安全相关法律法规，禁止用于非法用途。</li>
+</ol>
+<p>通过上述架构设计，可实现家庭网络环境下的精细化流量管理，在保障国内服务访问效率的同时，满足高质量国际流媒体内容的稳定传输需求。系统部署完成后，建议定期进行固件版本升级与安全策略审计，确保网络环境的长期可靠性。</p>
+]]></content>
+      <categories>
+        <category>Website</category>
+      </categories>
+      <tags>
+        <tag>DHCP</tag>
+        <tag>软路由</tag>
+        <tag>Surge</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>校招-前端知识题库</title>
     <url>/2014/ms_fe/</url>
     <content><![CDATA[<p>包括 fe/js/TS/React/H5/微信小程序</p>
@@ -175,53 +329,6 @@ IPv4&amp;IPv6、三次握手、外网内网
       <categories>
         <category>Interview</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Category 特性在组件化中的应用于管控</title>
-    <url>/2018/mtblog_category_ios/</url>
-    <content><![CDATA[<p>Category 是 Objective-C
-2.0之后添加的语言特性。随着移动互联网的快速发展，不断迭代的移动端工程往往面临着耦合严重、维护效率低、开发不够敏捷等常见问题，因此越来越多的公司开始推行“组件化”，通过解耦重组组件来提高并行开发效率。但是大多数团队口中的“组件化”就是把代码分库，主工程使用
-CocoaPods
-工具把各个子库的版本号聚合起来。但能合理的把组件分层，并且有一整套工具链支撑发版与集成的公司较少，导致开发效率很难有明显地提升。</p>
-<p>(本文是博主在其他正式博客组织发布的文章，直接添加外链)<br >
-美团技术博客原文：<a
-href="https://tech.meituan.com/2018/11/08/ios-category-module-communicate.html">《Category
-特性在 iOS 组件化中的应用与管控》</a><br /> 微信公众号原文：<a
-href="https://mp.weixin.qq.com/s/5ucpVa6ku4b9_pfMP9CqlQ">《Category
-特性在 iOS 组件化中的应用与管控》</a></p>
-<p><img src="/images/blog/2018cate/2018cate_01.png" alt="home" width="500"/></p>
-]]></content>
-      <categories>
-        <category>MTBlog</category>
-      </categories>
-      <tags>
-        <tag>工程化</tag>
-        <tag>组件化</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>美团外卖 Flutter 动态化实践</title>
-    <url>/2020/mtblog_flap/</url>
-    <content><![CDATA[<p>动态化是 Flutter 无法避开的话题。本文从 Flutter 的特点讲起，
-阐述了美团外卖团队在整个 Flutter
-动态化上探索的心路历程，还有设计理念、核心原理以及业务应用的经验。本文的视角也不局限于框架本身，更多思考了在解决问题的过程中技术团队需要做的事情，希望能对大家有所启发和帮助。</p>
-<p>(本文是博主在其他正式博客组织发布的文章，直接添加外链)<br >
-美团技术博客原文：<a
-href="https://tech.meituan.com/2020/06/23/meituan-flutter-flap.html">《美团外卖Flutter动态化实践
-》</a><br /> 微信公众号原文：<a
-href="https://mp.weixin.qq.com/s/wjEvtvexYytzSy5RwqGQyw">《美团外卖Flutter动态化实践
-》</a></p>
-<p><img src="/images/blog/2020flap/2020flap_01.png" alt="home" width="800"/></p>
-]]></content>
-      <categories>
-        <category>MTBlog</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>动态化</tag>
-        <tag>Flutter</tag>
-      </tags>
   </entry>
   <entry>
     <title>纯 Dart 语言 Flutter 动态化原理剖析</title>
@@ -241,27 +348,9 @@ Dart 的 Flutter 动态化实践 》</a><br /></p>
         <category>MTBlog</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>动态化</tag>
         <tag>Flutter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>美团外卖多端复用与架构演进</title>
-    <url>/2018/mtblog_multi_reuse/</url>
-    <content><![CDATA[<p>美团外卖2013年11月开始起步，随后高速发展，不断刷新多项行业记录。截止至2018年5月19日，日订单量峰值已超过2000万，是全球规模最大的外卖平台。业务的快速发展对技术支撑提出了更高的要求：为线上用户提供高稳定的服务体验，保障全链路业务和系统高可用运行的同时，要提升多入口业务的研发速度，推进App系统架构的合理演化，进一步提升跨部门跨地域团队之间的协作效率。<br />而另一方面随着用户数与订单数的高速增长，美团外卖逐渐有了流量平台的特征，兄弟业务纷纷尝试接入美团外卖进行推广和发布，期望提供统一标准化服务平台。因此，基础能力标准化，推进多端复用，同时输出成熟稳定的技术服务平台，一直是我们技术团队追求的核心目标。</p>
-<p>(本文是博主在其他正式博客组织发布的文章，直接添加外链)<br >美团技术博客原文：<a
-href="https://tech.meituan.com/2018/06/29/ios-multiterminal-reuse.html">《美团外卖多端复用的推动、支撑与思考》</a><br />微信公众号原文：<a
-href="https://mp.weixin.qq.com/s/l2BjXPPbCiXZ-gYlOcD7ug">《美团外卖iOS多端复用的推动、支撑与思考》</a></p>
-<p><img src="/images/blog/2018ddfy/2018ddfy_01.jpeg" alt="home" width="800"/></p>
-]]></content>
-      <categories>
-        <category>MTBlog</category>
-      </categories>
-      <tags>
         <tag>前端</tag>
-        <tag>架构演进</tag>
-        <tag>多端复用</tag>
       </tags>
   </entry>
   <entry>
@@ -282,6 +371,24 @@ href="https://mp.weixin.qq.com/s/HZDcvHAtIgJfgD2mMGaHzA">《终端新玩法：�
         <tag>前端</tag>
         <tag>计算机视觉</tag>
         <tag>技术栈无关</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美团外卖多端复用与架构演进</title>
+    <url>/2018/mtblog_multi_reuse/</url>
+    <content><![CDATA[<p>美团外卖2013年11月开始起步，随后高速发展，不断刷新多项行业记录。截止至2018年5月19日，日订单量峰值已超过2000万，是全球规模最大的外卖平台。业务的快速发展对技术支撑提出了更高的要求：为线上用户提供高稳定的服务体验，保障全链路业务和系统高可用运行的同时，要提升多入口业务的研发速度，推进App系统架构的合理演化，进一步提升跨部门跨地域团队之间的协作效率。<br />而另一方面随着用户数与订单数的高速增长，美团外卖逐渐有了流量平台的特征，兄弟业务纷纷尝试接入美团外卖进行推广和发布，期望提供统一标准化服务平台。因此，基础能力标准化，推进多端复用，同时输出成熟稳定的技术服务平台，一直是我们技术团队追求的核心目标。</p>
+<p>(本文是博主在其他正式博客组织发布的文章，直接添加外链)<br >美团技术博客原文：<a
+href="https://tech.meituan.com/2018/06/29/ios-multiterminal-reuse.html">《美团外卖多端复用的推动、支撑与思考》</a><br />微信公众号原文：<a
+href="https://mp.weixin.qq.com/s/l2BjXPPbCiXZ-gYlOcD7ug">《美团外卖iOS多端复用的推动、支撑与思考》</a></p>
+<p><img src="/images/blog/2018ddfy/2018ddfy_01.jpeg" alt="home" width="800"/></p>
+]]></content>
+      <categories>
+        <category>MTBlog</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>架构演进</tag>
+        <tag>多端复用</tag>
       </tags>
   </entry>
   <entry>
@@ -379,7 +486,7 @@ x_1^2 + x_2^2 + \underbrace{\cdots}_{\rm cdots} + x_n^2\)</span></p>
       </categories>
   </entry>
   <entry>
-    <title>网站建设与部署问题记录</title>
+    <title>个人站点建设与部署问题记录</title>
     <url>/2015/website_qa/</url>
     <content><![CDATA[<h3 id="前言">前言</h3>
 <p>本文档旨在记录个人站点建设过程中遭遇的挑战及其解决方案，着重概述主要架构和操作流程，而非详尽地逐步说明具体操作细节。</p>
@@ -627,5 +734,52 @@ big 了，在 Algolia 的控制台内看上传 item 内的 <code>content</code>
       <categories>
         <category>Website</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Category 特性在组件化中的应用于管控</title>
+    <url>/2018/mtblog_category_ios/</url>
+    <content><![CDATA[<p>Category 是 Objective-C
+2.0之后添加的语言特性。随着移动互联网的快速发展，不断迭代的移动端工程往往面临着耦合严重、维护效率低、开发不够敏捷等常见问题，因此越来越多的公司开始推行“组件化”，通过解耦重组组件来提高并行开发效率。但是大多数团队口中的“组件化”就是把代码分库，主工程使用
+CocoaPods
+工具把各个子库的版本号聚合起来。但能合理的把组件分层，并且有一整套工具链支撑发版与集成的公司较少，导致开发效率很难有明显地提升。</p>
+<p>(本文是博主在其他正式博客组织发布的文章，直接添加外链)<br >
+美团技术博客原文：<a
+href="https://tech.meituan.com/2018/11/08/ios-category-module-communicate.html">《Category
+特性在 iOS 组件化中的应用与管控》</a><br /> 微信公众号原文：<a
+href="https://mp.weixin.qq.com/s/5ucpVa6ku4b9_pfMP9CqlQ">《Category
+特性在 iOS 组件化中的应用与管控》</a></p>
+<p><img src="/images/blog/2018cate/2018cate_01.png" alt="home" width="500"/></p>
+]]></content>
+      <categories>
+        <category>MTBlog</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>工程化</tag>
+        <tag>组件化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美团外卖 Flutter 动态化实践</title>
+    <url>/2020/mtblog_flap/</url>
+    <content><![CDATA[<p>动态化是 Flutter 无法避开的话题。本文从 Flutter 的特点讲起，
+阐述了美团外卖团队在整个 Flutter
+动态化上探索的心路历程，还有设计理念、核心原理以及业务应用的经验。本文的视角也不局限于框架本身，更多思考了在解决问题的过程中技术团队需要做的事情，希望能对大家有所启发和帮助。</p>
+<p>(本文是博主在其他正式博客组织发布的文章，直接添加外链)<br >
+美团技术博客原文：<a
+href="https://tech.meituan.com/2020/06/23/meituan-flutter-flap.html">《美团外卖Flutter动态化实践
+》</a><br /> 微信公众号原文：<a
+href="https://mp.weixin.qq.com/s/wjEvtvexYytzSy5RwqGQyw">《美团外卖Flutter动态化实践
+》</a></p>
+<p><img src="/images/blog/2020flap/2020flap_01.png" alt="home" width="800"/></p>
+]]></content>
+      <categories>
+        <category>MTBlog</category>
+      </categories>
+      <tags>
+        <tag>动态化</tag>
+        <tag>Flutter</tag>
+        <tag>前端</tag>
+      </tags>
   </entry>
 </search>
